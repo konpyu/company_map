@@ -30,3 +30,7 @@ group :test do
   gem 'rspec-mocks'
   gem 'rspec-activemodel-mocks'
 end
+
+group :production do
+  gem "rails_12factor"
+end
