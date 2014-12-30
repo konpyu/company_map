@@ -10,6 +10,7 @@ class CreateStartups < ActiveRecord::Migration
       t.string      :logo_url
       t.integer     :employee_count
       t.integer     :found_year
+      t.integer     :job_count
       t.float       :lat
       t.float       :lng
       t.float       :vlat

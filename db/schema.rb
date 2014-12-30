@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141230062212) do
     t.string   "logo_url",       limit: 255
     t.integer  "employee_count", limit: 4
     t.integer  "found_year",     limit: 4
+    t.integer  "job_count",      limit: 4
     t.float    "lat",            limit: 24
     t.float    "lng",            limit: 24
     t.float    "vlat",           limit: 24
