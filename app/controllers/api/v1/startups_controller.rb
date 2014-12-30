@@ -14,7 +14,7 @@ class Api::V1::StartupsController < ApplicationController
   end
 
   def show
-    startup = Startup.first
+    startup = Startup.find(params[:id])
     respond_to do |format|
       format.json { render json: startup, status: 200 }
     end
