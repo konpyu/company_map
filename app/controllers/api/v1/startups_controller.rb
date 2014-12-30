@@ -20,6 +20,15 @@ class Api::V1::StartupsController < ApplicationController
     end
   end
 
+  def like
+    startup = Startup.find(params[:id])
+    startup.like_count += 1
+    startup.save!
+    respond_to do |format|
+      format.json { render json: startup, status: 200 }
+    end
+  end
+
   private
 
   def startup_params
