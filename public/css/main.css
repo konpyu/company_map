@@ -1,0 +1,80 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 40px;
+    bottom: 40px;
+    z-index: 100;
+}
+
+.menus {
+    display: table;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    z-index: 100;
+    background-color: #eee;
+}
+
+.menu {
+    display: table-cell;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #aaa;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+#map_canvas {
+    width:100%;
+    height:100%;
+}
+
+vue-popup {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transition: all 0.8s ease;
+    max-height: 442px;
+    overflow: hidden;
+    display: block;
+}
+
+vue-popup.expand-enter, vue-popup.expand-leave {
+    max-height: 0;
+    opacity: 0;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.overlay .loading {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -32px 0 0 -32px;
+}
