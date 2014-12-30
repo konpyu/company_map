@@ -1,15 +1,45 @@
 class Api::V1::StartupsController < ApplicationController
   def create
+    startup = Startup.create(startup_params)
+    respond_to do |format|
+      format.json { render json: startup, status: 200 }
+    end
   end
 
   def index
-    sample = {}
-    sample[:hoge] = 1
+    startup = Startup.all
     respond_to do |format|
-      format.json { render :json => sample }
+      format.json { render json: startup, status: 200 }
     end
   end
 
   def show
+    startup = Startup.first
+    respond_to do |format|
+      format.json { render json: startup, status: 200 }
+    end
   end
+
+  private
+
+  def startup_params
+    params.permit(
+      :name,
+      :company_name,
+      :address,
+      :company_url,
+      :description,
+      :like_count,
+      :logo_url,
+      :employee_count,
+      :found_year,
+      :lat,
+      :lng,
+      :vlat,
+      :vlng,
+      :area,
+      :category
+    )
+  end
+
 end
