@@ -1,0 +1,22 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore RubyMine/InteliJ setting file
+/.idea
+
+/log/*.log
+/tmp
+
+memo.md
+vendor/bundle
+.DS_Store
+coverage/
+.*.un~
