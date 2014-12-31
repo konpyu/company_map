@@ -6,7 +6,9 @@ namespace :import do
     JSON.parse(datas).each do |data|
       Startup.create(
         name:           data["name"],
+        description:    data["about_me"],
         company_name:   data["company_name"],
+        foundation_date: data["foundation_date"],
         address:        data["address"],
         logo_url:       data["logo_url"],
         company_url:    data["company_url"],
