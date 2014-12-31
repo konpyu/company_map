@@ -15,6 +15,7 @@ namespace :import do
 
     JSON.parse(datas).each do |data|
       next if names.include?(data["name"])
+      next if !data["lat"] || !data["lng"]
       names.push(data["name"])
 
       startups.push Startup.new(
@@ -27,8 +28,8 @@ namespace :import do
         company_url:    data["company_url"],
         job_count:      data["job_count"],
         employee_count: data["employee_count"],
-        lat:            data["lat"],
-        lng:            data["lng"],
+        lat:            data["lat"].to_f,
+        lng:            data["lng"].to_f,
       )
     end
     Startup.import startups

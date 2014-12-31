@@ -11,26 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141231082730) do
+ActiveRecord::Schema.define(version: 20141231104450) do
 
   create_table "startups", force: :cascade do |t|
-    t.string   "name",            limit: 255,               null: false
-    t.string   "company_name",    limit: 255,               null: false
-    t.string   "address",         limit: 255,               null: false
+    t.string   "name",            limit: 255,                                       null: false
+    t.string   "company_name",    limit: 255,                                       null: false
+    t.string   "address",         limit: 255,                                       null: false
     t.string   "company_url",     limit: 255
     t.text     "description",     limit: 65535
-    t.integer  "like_count",      limit: 4,     default: 0
+    t.integer  "like_count",      limit: 4,                             default: 0
     t.text     "logo_url",        limit: 65535
     t.integer  "employee_count",  limit: 4
     t.integer  "job_count",       limit: 4
-    t.float    "lat",             limit: 24
-    t.float    "lng",             limit: 24
+    t.decimal  "lat",                           precision: 9, scale: 6
+    t.decimal  "lng",                           precision: 9, scale: 6
     t.float    "vlat",            limit: 24
     t.float    "vlng",            limit: 24
     t.string   "area",            limit: 255
     t.string   "category",        limit: 255
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
     t.string   "foundation_date", limit: 255
   end
 
