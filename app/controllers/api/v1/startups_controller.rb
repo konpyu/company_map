@@ -9,6 +9,7 @@ class Api::V1::StartupsController < ApplicationController
   def index
     startup = Startup.all
     startup = startup.limit(params[:limit]) if params[:limit]
+    startup = startup.order(like_count: :desc) if params[:sort] == 'like_count'
 
     respond_to do |format|
       format.json { render json: startup, status: 200 }

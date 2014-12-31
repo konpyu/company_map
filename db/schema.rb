@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230062212) do
+ActiveRecord::Schema.define(version: 20141231060218) do
 
   create_table "startups", force: :cascade do |t|
     t.string   "name",           limit: 255,               null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141230062212) do
   end
 
   add_index "startups", ["lat"], name: "index_startups_on_lat", using: :btree
+  add_index "startups", ["like_count"], name: "index_startups_on_like_count", using: :btree
   add_index "startups", ["lng"], name: "index_startups_on_lng", using: :btree
   add_index "startups", ["name"], name: "index_startups_on_name", unique: true, using: :btree
 
