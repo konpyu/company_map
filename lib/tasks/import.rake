@@ -1,10 +1,23 @@
 namespace :import do
 
+  desc "delete data"
+  task delete: :environment do
+    Startup.delete_all
+  end
+
   desc "import data"
   task data: :environment do
     datas = File.open("#{Rails.root}/lib/data/data.json").read
+
+    # まどろっこしいけどクエリ発行数を減らさないとClearDBの制限に引っかかるので
+    names = []
+    startups = []
+
     JSON.parse(datas).each do |data|
-      Startup.create(
+      next if names.include?(data["name"])
+      names.push(data["name"])
+
+      startups.push Startup.new(
         name:           data["name"],
         description:    data["about_me"],
         company_name:   data["company_name"],
@@ -18,5 +31,6 @@ namespace :import do
         lng:            data["lng"],
       )
     end
+    Startup.import startups
   end
 end
