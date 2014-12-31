@@ -8,6 +8,7 @@ class Api::V1::StartupsController < ApplicationController
 
   def index
     startup = Startup.all
+    startup = startup.select("id, company_name, lat, lng, like_count, logo_url") unless params[:all_column]
     startup = startup.limit(params[:limit]) if params[:limit]
     startup = startup.order(like_count: :desc) if params[:sort] == 'like_count'
 
