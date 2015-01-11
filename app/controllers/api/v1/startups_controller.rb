@@ -33,6 +33,14 @@ class Api::V1::StartupsController < ApplicationController
     end
   end
 
+  def update
+    startup = Startup.find(params[:id])
+    startup.update!(startup_params)
+    respond_to do |format|
+      format.json { render json: startup, status: 200 }
+    end
+  end
+
   private
 
   def startup_params
