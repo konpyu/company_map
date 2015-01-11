@@ -50,7 +50,6 @@ class Api::V1::StartupsController < ApplicationController
       :address,
       :company_url,
       :description,
-      :like_count,
       :logo_url,
       :employee_count,
       :found_year,
