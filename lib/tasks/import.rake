@@ -1,8 +1,9 @@
 namespace :import do
 
   desc "delete data"
-  task delete: :environment do
-    Startup.delete_all
+  task delete_anonymous: :environment do
+    url = "https://dubpy8abnqmkw.cloudfront.net/images/anonymous/anonymous-company.png"
+    Startup.where(logo_url: url).order(:like_count).limit(500).destroy_all
   end
 
   desc "update data"
