@@ -5,6 +5,27 @@ namespace :import do
     Startup.delete_all
   end
 
+  desc "update data"
+  task update: :environment do
+    datas = File.open("#{Rails.root}/lib/data/data2.json").read
+    JSON.parse(datas).each do |data|
+      next if !data["lat"] || !data["lng"]
+      startup = Startup.find_or_initialize_by(name: data["name"])
+      startup.description     = data["about_me"]
+      startup.company_name    = data["company_name"]
+      startup.foundation_date = data["foundation_date"]
+      startup.address         = data["address"]
+      startup.logo_url        = data["logo_url"]
+      startup.company_url     = data["company_url"]
+      startup.job_count       = data["job_count"]
+      startup.employee_count  = data["employee_count"]
+      startup.lat             = data["lat"].to_f
+      startup.lng             = data["lng"].to_f
+      startup.save!
+      puts "saved #{startup.name}"
+    end
+  end
+
   desc "import data"
   task data: :environment do
     datas = File.open("#{Rails.root}/lib/data/data.json").read
